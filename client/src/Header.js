@@ -1,10 +1,23 @@
 import React from 'react'
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link, useHistory } from "react-router-dom"
 
-function Header() {
+function Header({ currentUser, updateUser }) {
+
+    const history = useHistory()
+
+    const handleLogout = () => {
+        fetch('/logout', {
+            method: 'DELETE'
+        })
+        updateUser(null)
+        history.push('/login')
+    }
+
+
   return (
     <div>
         <span>This is the header</span>
+        <button onClick={handleLogout}>Logout</button>
         <nav>
             <NavLink exact to="/">
                 Home

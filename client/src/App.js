@@ -16,11 +16,16 @@ const Mp3Recorder = new MicRecorder({ bitRate: 512 });
 
 function App() {
 
+  const [currentUser, setCurrentUser] = useState("")
+
+
+  const updateUser = (user) => setCurrentUser(user)
+
 
 
   return (
     <div className="App">
-      <Header />
+      <Header currentUser={currentUser} updateUser={updateUser}/>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -32,7 +37,7 @@ function App() {
           <UserPage />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login updateUser={updateUser}/>
         </Route>
         <Route path="/sign_up">
           <SignUp />

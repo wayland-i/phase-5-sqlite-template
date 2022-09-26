@@ -49,11 +49,11 @@ function SignUp() {
     <div>
         <h1>Sign Up</h1>
         <form onSubmit={onSubmit}>
-            <label for='username'>Create Username: </label>
+            <label htmlFor='username'>Create Username: </label>
             <input id='username' name='username' onChange={handleChange}></input>
             <br></br>
             <br></br>
-            <label for='password'>Create Password: </label>
+            <label htmlFor='password'>Create Password: </label>
             <input id='password' name='password' onChange={handleChange}></input>
             <br></br>
             <br></br>

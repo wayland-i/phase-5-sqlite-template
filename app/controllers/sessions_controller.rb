@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
 
+    #login
     def create
-        byebug
         user = User.find_by(params[:name])
         if user&.authenticate(params[:password])
           session[:user_id] = user.id
-          render json: user, status
+          render json: user, status: :ok
         else
           render json: {error: "Invalid Credentials"}, status:
           :unauthorized
@@ -17,5 +17,5 @@ class SessionsController < ApplicationController
         session.delete :user_id
       end
 
-      
+
 end
