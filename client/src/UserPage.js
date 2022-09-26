@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import Card from './Card'
 
-function UserPage({currentUser}) {
+function UserPage({currentUser, usersCards, setUsersCards}) {
 
   const [errors, setErrors] = useState([])
-  const [usersCards, setUsersCards] = useState([])
+  const history = useHistory()
 
   const [cardData, setCardData] = useState({
     title: 'new card',
@@ -13,6 +14,7 @@ function UserPage({currentUser}) {
   })
 
   const {title, description, user_id} = cardData
+
   
   const handleNewCard = () => {
     const card = {
@@ -35,13 +37,14 @@ function UserPage({currentUser}) {
     })
   }
 
+
   
   return (
     <div>
         <h1>User Page</h1>
         <h3>{currentUser.username} is the current user</h3>
         <button onClick={handleNewCard}>New Card</button>
-        {usersCards.map(card => <Card key={card.id} title={card.title} description={card.description} user={card.user_id}/>)}
+        {usersCards.map(card => <Card key={card.id} card={card}/>)}
     </div>
   )
 }

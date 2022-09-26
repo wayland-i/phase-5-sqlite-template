@@ -16,7 +16,24 @@ const Mp3Recorder = new MicRecorder({ bitRate: 512 });
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState("")
+  const [usersCards, setUsersCards] = useState([])
+  const [errors, setErrors] = useState(false)
+
+  const [currentUser, setCurrentUser] = useState(null)
+
+
+  useEffect(()=>{
+    fetch('/cards')
+    .then(r => {
+      if (r.ok){
+        r.json().then(data => {
+          setUsersCards(data)
+        })
+      } else {
+        r.json().then(data => setErrors(data.errors))
+      }
+    })
+  }, [])
 
 
   const updateUser = (user) => setCurrentUser(user)
@@ -35,7 +52,7 @@ function App() {
           <About />
         </Route>
         <Route path="/user_page">
-          <UserPage currentUser={currentUser}/>
+          <UserPage currentUser={currentUser} usersCards={usersCards} setUsersCards={setUsersCards}/>
         </Route>
         <Route path="/login">
           <Login updateUser={updateUser}/>

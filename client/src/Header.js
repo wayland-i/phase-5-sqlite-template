@@ -17,7 +17,7 @@ function Header({ currentUser, updateUser }) {
   return (
     <div>
         <span>This is the header</span>
-        <button onClick={handleLogout}>Logout</button>
+        {currentUser ? <button onClick={handleLogout}>Logout</button> : null}
         <nav>
             <NavLink exact to="/">
                 Home
@@ -27,10 +27,7 @@ function Header({ currentUser, updateUser }) {
                 About
             </NavLink>
             <br></br>
-            <NavLink to="/user_page">
-                User Page
-            </NavLink>
-            <br></br>
+            {currentUser ? <div><NavLink to="/user_page">User Page</NavLink></div> : null}
             <NavLink to="/login">
                 Login
             </NavLink>

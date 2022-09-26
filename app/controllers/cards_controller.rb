@@ -1,5 +1,9 @@
 class CardsController < ApplicationController
 
+    def index
+        render json: Card.all, status: :ok
+    end
+
     def create
         card = Card.create(card_params)
         render json: card, status: :created
