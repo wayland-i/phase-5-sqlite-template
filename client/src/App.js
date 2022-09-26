@@ -1,40 +1,35 @@
+import { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './stylesheets/App.css';
 import MicRecorder from 'mic-recorder-to-mp3';
-import { useState, useEffect } from 'react';
+
+import Home from './Home';
+import About from './About';
+import UserPage from './UserPage';
+import Header from './Header';
+
 
 const Mp3Recorder = new MicRecorder({ bitRate: 512 });
 
 
 function App() {
-  
 
-  const [trackOne, setTrackOne] = useState(
-    {
-      isRecording: false,
-      blobURL: '',
-      isBlocked: false,
-    })
-
-  // one time check for mic permissions
-  useEffect(() => {
-    navigator.getUserMedia({ audio: true },
-      () => {
-        console.log('Permission Granted');
-        setTrackOne({ isBlocked: false });
-      },
-      () => {
-        console.log('Permission Denied');
-        setTrackOne({ isBlocked: true })
-      },
-    );
-  
-  }, [])
 
 
   return (
     <div className="App">
-      
-
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/user_page">
+          <UserPage />
+        </Route>
+      </Switch>
 
     </div>
   );
