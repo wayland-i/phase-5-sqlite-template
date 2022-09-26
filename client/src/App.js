@@ -35,6 +35,15 @@ function App() {
     })
   }, [])
 
+  useEffect(()=>{
+    fetch('/me')
+    .then(r => {
+      r.json().then(data => {
+        setCurrentUser(data)
+      })
+    })
+  }, [])
+
 
   const updateUser = (user) => setCurrentUser(user)
 

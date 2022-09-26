@@ -53,7 +53,7 @@ const onSubmit = (e) => {
             <br></br>
             <br></br>
             <label htmlFor='password'>Password: </label>
-            <input id='password' name='password' onChange={handleChange}></input>
+            <input id='password' type='password' name='password' onChange={handleChange}></input>
             <br></br>
             <br></br>
             <input type='submit' value='Log In' />

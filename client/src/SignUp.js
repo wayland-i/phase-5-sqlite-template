@@ -55,7 +55,7 @@ function SignUp({updateUser}) {
             <br></br>
             <br></br>
             <label htmlFor='password'>Create Password: </label>
-            <input id='password' name='password' onChange={handleChange}></input>
+            <input id='password' name='password' type='password' onChange={handleChange}></input>
             <br></br>
             <br></br>
             <input type='submit' value='Sign Up' />
