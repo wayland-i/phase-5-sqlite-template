@@ -3,7 +3,7 @@ import MicRecorder from 'mic-recorder-to-mp3';
 import { useState, useEffect } from 'react';
 import Container from './Container';
 
-const Mp3Recorder = new MicRecorder({ bitRate: 128 });
+const Mp3Recorder = new MicRecorder({ bitRate: 512 });
 
 
 function App() {
@@ -140,8 +140,6 @@ function App() {
       <audio src={trackOne.blobURL} controls="controls" />
 
       <Container allTracks={allTracks}/>
-
-      <button onClick={handleClickState}>Refresh</button>
 
 
     </div>
