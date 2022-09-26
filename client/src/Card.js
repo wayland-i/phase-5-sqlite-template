@@ -14,6 +14,7 @@ function Card({card}) {
         <label name='privacy'>make public?</label>
         <input type="checkbox" name='privacy'></input>
         {/* <h4>card's user's id:{card.user.id}</h4> */}
+        <button>add track</button>
     </div>
   )
 }

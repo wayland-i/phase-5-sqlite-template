@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {useHistory} from 'react-router-dom'
 
 
-function SignUp() {
+function SignUp({updateUser}) {
   const [errors, setErrors] = useState([])
   const history = useHistory()
 
@@ -30,7 +30,8 @@ function SignUp() {
     .then(r => {
       if (r.ok){
         r.json().then(user => {
-          history.pushState('/')
+          updateUser(user)
+          history.push('/')
         })
       } else {
         r.json().then(json => setErrors(Object.entries(json.errors)))

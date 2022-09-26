@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
 function Login({updateUser}) {
+  const [errors, setErrors] = useState([])
   const history = useHistory()
 
-  const [errors, setErrors] = useState([])
 
   const [formData, setFormData] = useState({
     username:'',
@@ -13,35 +13,36 @@ function Login({updateUser}) {
 
 const {username, password} = formData
 
+
 const onSubmit = (e) => {
   e.preventDefault()
   const user = {
     username,
     password
   }
-  fetch(`/login`,{
+  fetch('/login',{
     method:'POST',
-    headers:{'Content-Type': 'application/json'},
-    body:JSON.stringify(user)
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(user)
   })
-  .then(res => {
-      if(res.ok){
-          res.json().then(user => {
+  .then(r => {
+      if(r.ok){
+          r.json().then(user => {
               updateUser(user)
               history.push(`/`)
           })
       }else {
-          res.json().then(json => setErrors(json.errors))
+          r.json().then(json => setErrors(json.errors))
       }
   })
 }
 
 
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value})
+  }
 
-const handleChange = (e) => {
-  const { name, value } = e.target
-  setFormData({ ...formData, [name]: value})
-}
 
   return (
     <div>

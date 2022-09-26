@@ -58,7 +58,7 @@ function App() {
           <Login updateUser={updateUser}/>
         </Route>
         <Route path="/sign_up">
-          <SignUp />
+          <SignUp updateUser={updateUser}/>
         </Route>
       </Switch>
 
