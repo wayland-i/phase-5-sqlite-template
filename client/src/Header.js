@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom"
 function Header() {
   return (
     <div>
-        <h1>Header</h1>
+        <span>This is the header</span>
         <nav>
             <NavLink exact to="/">
                 Home
@@ -16,6 +16,14 @@ function Header() {
             <br></br>
             <NavLink to="/user_page">
                 User Page
+            </NavLink>
+            <br></br>
+            <NavLink to="/login">
+                Login
+            </NavLink>
+            <br></br>
+            <NavLink to="/sign_up">
+                Sign Up
             </NavLink>
         </nav>
     </div>
