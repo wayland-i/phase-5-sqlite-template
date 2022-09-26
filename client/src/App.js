@@ -22,6 +22,7 @@ function App() {
   const updateUser = (user) => setCurrentUser(user)
 
 
+  console.log(currentUser)
 
   return (
     <div className="App">
@@ -34,7 +35,7 @@ function App() {
           <About />
         </Route>
         <Route path="/user_page">
-          <UserPage />
+          <UserPage currentUser={currentUser}/>
         </Route>
         <Route path="/login">
           <Login updateUser={updateUser}/>
