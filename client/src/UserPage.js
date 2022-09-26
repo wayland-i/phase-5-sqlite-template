@@ -37,6 +37,17 @@ function UserPage({currentUser, usersCards, setUsersCards}) {
     })
   }
 
+  // console.log(currentUser.id)
+  // let cardUserIds = usersCards.map(card => card.user.id)
+  // console.log(cardUserIds)
+
+  // if (cardUserIds.includes(currentUser.id)) {
+  //   console.log("hello")
+  // }
+
+  // const [privateCards, setPrivateCards] = useState([])
+
+  // if (usersCards.user.id ==)
 
   
   return (
@@ -44,7 +55,7 @@ function UserPage({currentUser, usersCards, setUsersCards}) {
         <h1>User Page</h1>
         <h3>{currentUser.username} is the current user</h3>
         <button onClick={handleNewCard}>New Card</button>
-        {usersCards.map(card => <Card key={card.id} card={card}/>)}
+        {usersCards.map(card => <Card key={card.id} card={card} currentUser={currentUser}/>)}
     </div>
   )
 }
