@@ -1,13 +1,14 @@
 import React from 'react'
 
-function Card({card, currentUser}) {
+function Card({card, currentUser, setUsersCards}) {
+
     
 
-    // console.log("hello")
-    // console.log(card.user.id)
-    // console.log(currentUser.id)
-
-    if (currentUser.id == card.user.id) {
+    if (card.user_id) {
+        fetch('/cards')
+        .then(r => r.json())
+        .then(data => setUsersCards(data))
+    } else if (currentUser.id == card.user.id) {
         // console.log("hello")
     
 

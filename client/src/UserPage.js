@@ -35,6 +35,10 @@ function UserPage({currentUser, usersCards, setUsersCards}) {
         r.json().then(json => setErrors(json.errors))
       }
     })
+
+    // fetch('/cards')
+    // .then(r => r.json())
+    // .then(data => setUsersCards(data))
   }
 
   // console.log(currentUser.id)
@@ -49,13 +53,15 @@ function UserPage({currentUser, usersCards, setUsersCards}) {
 
   // if (usersCards.user.id ==)
 
+  console.log(usersCards)
+
   
   return (
     <div>
         <h1>User Page</h1>
         <h3>{currentUser.username} is the current user</h3>
         <button onClick={handleNewCard}>New Card</button>
-        {usersCards.map(card => <Card key={card.id} card={card} currentUser={currentUser}/>)}
+        {usersCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setUsersCards={setUsersCards}/>)}
     </div>
   )
 }
