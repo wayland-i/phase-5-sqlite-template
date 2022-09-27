@@ -7,19 +7,23 @@ function UserPage({currentUser, allCards, setAllCards}) {
   const [errors, setErrors] = useState([])
   const history = useHistory()
 
+  const [publicSelected, setPublicSeclected] = useState({})
+
   const [cardData, setCardData] = useState({
     title: 'new card',
     description: 'description goes here',
+    is_public: false,
     user_id: `${currentUser.id}`
   })
 
-  const {title, description, user_id} = cardData
+  const {title, description, is_public, user_id} = cardData
 
   
   const handleNewCard = () => {
     const card = {
       title, 
-      description, 
+      description,
+      is_public, 
       user_id
     }
     
@@ -36,22 +40,9 @@ function UserPage({currentUser, allCards, setAllCards}) {
       }
     })
 
-    // fetch('/cards')
-    // .then(r => r.json())
-    // .then(data => setUsersCards(data))
+
   }
 
-  // console.log(currentUser.id)
-  // let cardUserIds = usersCards.map(card => card.user.id)
-  // console.log(cardUserIds)
-
-  // if (cardUserIds.includes(currentUser.id)) {
-  //   console.log("hello")
-  // }
-
-  // const [privateCards, setPrivateCards] = useState([])
-
-  // if (usersCards.user.id ==)
 
   console.log(allCards)
 

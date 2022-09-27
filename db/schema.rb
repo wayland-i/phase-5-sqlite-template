@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_120949) do
   create_table "cards", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.boolean "public"
+    t.boolean "is_public"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
