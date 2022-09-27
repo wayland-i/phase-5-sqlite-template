@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import Card from './Card'
 
-function UserPage({currentUser, usersCards, setUsersCards}) {
+function UserPage({currentUser, allCards, setAllCards}) {
 
   const [errors, setErrors] = useState([])
   const history = useHistory()
@@ -30,7 +30,7 @@ function UserPage({currentUser, usersCards, setUsersCards}) {
     })
     .then(r => {
       if (r.ok) {
-        r.json().then( setUsersCards([...usersCards, card]) )
+        r.json().then( setAllCards([...allCards, card]) )
       } else {
         r.json().then(json => setErrors(json.errors))
       }
@@ -53,7 +53,7 @@ function UserPage({currentUser, usersCards, setUsersCards}) {
 
   // if (usersCards.user.id ==)
 
-  console.log(usersCards)
+  console.log(allCards)
 
   
   return (
@@ -61,7 +61,7 @@ function UserPage({currentUser, usersCards, setUsersCards}) {
         <h1>User Page</h1>
         <h3>{currentUser.username} is the current user</h3>
         <button onClick={handleNewCard}>New Card</button>
-        {usersCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setUsersCards={setUsersCards}/>)}
+        {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setAllCards={setAllCards}/>)}
     </div>
   )
 }

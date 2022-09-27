@@ -1,15 +1,16 @@
 import React from 'react'
 
-function Card({card, currentUser, setUsersCards}) {
+function Card({card, currentUser, setAllCards}) {
 
     
 
     if (card.user_id) {
         fetch('/cards')
         .then(r => r.json())
-        .then(data => setUsersCards(data))
+        .then(data => setAllCards(data))
     } else if (currentUser.id == card.user.id) {
-        // console.log("hello")
+        //users cards array... setState here, lives in App
+        //then in App we want to track whether or not those buttons are clicked in Card
     
 
   
@@ -24,7 +25,7 @@ function Card({card, currentUser, setUsersCards}) {
                 <label name='privacy'>make public?</label>
                 <input type="checkbox" name='privacy'></input>
                 {/* <h4>card's user's id:{card.user.id}</h4> */}
-                <button>add track</button>
+                <button>add track</button> 
             </div>
         )
     }

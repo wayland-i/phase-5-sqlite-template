@@ -28,13 +28,8 @@ function Header({ currentUser, updateUser }) {
             </NavLink>
             <br></br>
             {currentUser ? <div><NavLink to="/user_page">User Page</NavLink></div> : null}
-            <NavLink to="/login">
-                Login
-            </NavLink>
-            <br></br>
-            <NavLink to="/sign_up">
-                Sign Up
-            </NavLink>
+            {currentUser ? null : <div><NavLink to="/login">Login</NavLink></div>}
+            {currentUser ? null : <div><NavLink to="/sign_up">Sign Up</NavLink></div>}
         </nav>
     </div>
   )

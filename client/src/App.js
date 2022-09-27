@@ -16,7 +16,7 @@ const Mp3Recorder = new MicRecorder({ bitRate: 512 });
 
 function App() {
 
-  const [usersCards, setUsersCards] = useState([])
+  const [allCards, setAllCards] = useState([])
   const [errors, setErrors] = useState(false)
 
   const [currentUser, setCurrentUser] = useState(null)
@@ -27,7 +27,7 @@ function App() {
     .then(r => {
       if (r.ok){
         r.json().then(data => {
-          setUsersCards(data)
+          setAllCards(data)
         })
       } else {
         r.json().then(data => setErrors(data.errors))
@@ -61,7 +61,7 @@ function App() {
           <About />
         </Route>
         <Route path="/user_page">
-          <UserPage currentUser={currentUser} usersCards={usersCards} setUsersCards={setUsersCards}/>
+          <UserPage currentUser={currentUser} allCards={allCards} setAllCards={setAllCards}/>
         </Route>
         <Route path="/login">
           <Login updateUser={updateUser}/>
