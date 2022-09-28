@@ -21,7 +21,10 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
-  const [dummy, setDummy] = useState(false)
+
+
+  const [allTracks, setAllTracks] = useState([])
+
 
 
   useEffect(()=>{
@@ -54,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header currentUser={currentUser} updateUser={updateUser} setDummy={setDummy}/>
+      <Header currentUser={currentUser} updateUser={updateUser}/>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -63,7 +66,13 @@ function App() {
           <About />
         </Route>
         <Route path="/user_page">
-          <UserPage currentUser={currentUser} setCurrentUser={setCurrentUser} allCards={allCards} setAllCards={setAllCards}/>
+          <UserPage 
+          currentUser={currentUser} 
+          setCurrentUser={setCurrentUser} 
+          allCards={allCards} 
+          setAllCards={setAllCards}
+          allTracks={allTracks}
+          setAllTracks={setAllTracks}/>
         </Route>
         <Route path="/login">
           <Login updateUser={updateUser}/>

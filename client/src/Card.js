@@ -1,9 +1,9 @@
 import { useState } from "react"
 import React from 'react'
-
+import AudioForCard from "./AudioForCard";
 import './stylesheets/App.css';
 
-function Card({card, currentUser, setAllCards, allCards}) {
+function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks}) {
 
 
         const [formData, SetFormData] = useState({
@@ -79,14 +79,7 @@ function Card({card, currentUser, setAllCards, allCards}) {
                     </label>
                 </form>
                 }
-                {/* <form>
-                    <label name="privacy">public</label>
-                    <label className="switch">
-                        <input type="checkbox" name="privacy" checked="true" onClick={handleOnClick}/>
-                        <span className="slider round"></span>
-                    </label>
-                </form> */}
-                {/* <h4>card's user's id:{card.user.id}</h4> */}
+                <AudioForCard card={card} setAllTracks={setAllTracks} allTracks={allTracks}/>
                 <button>add track</button> 
             </div>
         )

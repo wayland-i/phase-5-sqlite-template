@@ -61,7 +61,7 @@ function SignUp({updateUser}) {
             <br></br>
             <br></br>
             <input type='submit' value='Sign Up' />
-            {errors? errors.map(error => <div> {error[0]} {error[1]} </div>) :null}
+            {errors? <div>{errors}</div>:null}
         </form>
     </div>
   )

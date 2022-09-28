@@ -11,7 +11,7 @@ class CardsController < ApplicationController
     end
 
     def create
-        card = Card.create(card_params)
+        card = Card.create!(card_params)
         render json: card, status: :created
     end
 

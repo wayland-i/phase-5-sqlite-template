@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Card from './Card'
 
-function UserPage({currentUser, allCards, setAllCards}) {
+function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks}) {
 
   const [errors, setErrors] = useState([])
   const history = useHistory()
@@ -50,7 +50,7 @@ function UserPage({currentUser, allCards, setAllCards}) {
         <h1>User Page</h1>
         <h3>{currentUser.username} is the current user</h3>
         <button onClick={handleNewCard}>New Card</button>
-        {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setAllCards={setAllCards} allCards={allCards}/>)}
+        {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setAllCards={setAllCards} allCards={allCards} setAllTracks={setAllTracks} allTracks={allTracks}/>)}
     </div>
   )
 }

@@ -13,15 +13,10 @@ function Header({ currentUser, updateUser, setDummy }) {
         history.push('/login')
     }
 
-    const handleClick = () => {
-        setDummy(dummy => !dummy)
-    }
 
 
   return (
     <div>
-        <span>This is the header</span>
-        <button onClick={handleClick}>re-render</button>
         {currentUser ? <button onClick={handleLogout}>Logout</button> : null}
         <nav>
             <NavLink exact to="/">
