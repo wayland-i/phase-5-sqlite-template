@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Card from './Card'
 
@@ -8,6 +8,10 @@ function UserPage({currentUser, allCards, setAllCards}) {
   const history = useHistory()
 
   const [publicSelected, setPublicSeclected] = useState({})
+
+
+
+
 
   const [cardData, setCardData] = useState({
     title: 'new card',
@@ -52,7 +56,7 @@ function UserPage({currentUser, allCards, setAllCards}) {
         <h1>User Page</h1>
         <h3>{currentUser.username} is the current user</h3>
         <button onClick={handleNewCard}>New Card</button>
-        {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setAllCards={setAllCards}/>)}
+        {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setAllCards={setAllCards} allCards={allCards}/>)}
     </div>
   )
 }

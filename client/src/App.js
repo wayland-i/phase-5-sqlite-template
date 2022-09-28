@@ -61,7 +61,7 @@ function App() {
           <About />
         </Route>
         <Route path="/user_page">
-          <UserPage currentUser={currentUser} allCards={allCards} setAllCards={setAllCards}/>
+          <UserPage currentUser={currentUser} setCurrentUser={setCurrentUser} allCards={allCards}/>
         </Route>
         <Route path="/login">
           <Login updateUser={updateUser}/>

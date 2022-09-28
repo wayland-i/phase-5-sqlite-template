@@ -3,47 +3,46 @@ import React from 'react'
 
 import './stylesheets/App.css';
 
-function Card({card, currentUser, setAllCards}) {
-
-
-
-        // const handleOnClick = (e) => {
-        //     console.log(e.target.value)
-        //     console.log(card.id)
-        //     console.log(card.is_public)
-        // }
-
-
-        //every click state is set and the nthat state is inverted
-
-        const [privacy, setPrivacy] = useState(card.is_public)
-
-
+function Card({card, currentUser, setAllCards, allCards}) {
 
 
         const [formData, SetFormData] = useState({
             id: `${card.id}`,
-            is_public: `${privacy}`
+            is_public: `${card.is_public}`
         })
 
         const { id, is_public } = formData
 
-        const handleOnClick = () => {
 
-            setPrivacy(privacy => !privacy)
+            // const card = {
+            //     id,
+            //     is_public
+            // }
+
+
+
+
+        const handleOnClick = (e) => {
+
+            console.log(e.target.checked)
+            
+
 
             const card = {
                 id,
-                is_public
+                is_public: `${e.target.checked}`
             }
 
-            console.log(card.is_public)
+            console.log(card.id)
+            console.log(e.target.checked)
+            console.log(card)
 
-            fetch(`cards/${card.id}`, {
+            fetch(`cards_privacy/${card.id}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(card)
             })
+
         }
 
     
@@ -57,6 +56,8 @@ function Card({card, currentUser, setAllCards}) {
         //then in App we want to track whether or not those buttons are clicked in Card
 
 
+        console.log(card.is_public.toString())
+
   
     return (
 
@@ -66,6 +67,18 @@ function Card({card, currentUser, setAllCards}) {
                 <h4>card id: {card.id}</h4>
                 <h4>card title: {card.title}</h4>
                 <h4>card description: {card.description}</h4>
+                <h1>card is public? {card.is_public.toString()}</h1>
+
+                {card.is_public === true ? 
+                <form>
+                    <h1>ternary works</h1>
+                    <label name="privacy">public</label>
+                    <label className="switch">
+                        <input type="checkbox" name="privacy" defaultChecked="true" onClick={handleOnClick}/>
+                        <span className="slider round"></span>
+                    </label>
+                </form>
+                :
                 <form>
                     <label name="privacy">public</label>
                     <label className="switch">
@@ -73,6 +86,14 @@ function Card({card, currentUser, setAllCards}) {
                         <span className="slider round"></span>
                     </label>
                 </form>
+                }
+                {/* <form>
+                    <label name="privacy">public</label>
+                    <label className="switch">
+                        <input type="checkbox" name="privacy" checked="true" onClick={handleOnClick}/>
+                        <span className="slider round"></span>
+                    </label>
+                </form> */}
                 {/* <h4>card's user's id:{card.user.id}</h4> */}
                 <button>add track</button> 
             </div>
