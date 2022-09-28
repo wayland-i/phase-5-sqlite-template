@@ -3,7 +3,7 @@ import MicRecorder from 'mic-recorder-to-mp3';
 import Container from './Container';
 
 
-const Mp3Recorder = new MicRecorder({ bitRate: 512 });
+const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 function AudioForCard({ card, setAllTracks, allTracks}) {
 
@@ -11,16 +11,16 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
   const [audioData, setAudioData] = useState(null)
   const [loader, setLoader] = useState([])
   const [dummyState, setDummyState] = useState(true)
+  
+  
 
-
-  // state for first track
-const [trackOne, setTrackOne] = useState(
+  const [trackOne, setTrackOne] = useState(
     {
       isRecording: false,
       blobURL: '',
       isBlocked: false,
     })
-  
+
   // one time check for mic permissions
   useEffect(() => {
     navigator.getUserMedia({ audio: true },
@@ -35,10 +35,13 @@ const [trackOne, setTrackOne] = useState(
     );
   
   }, [])
-  
+
   const audioType = "audio/mp3; codecs=opus";
-    
-  // Starting first track
+
+
+
+
+
   const startOne = (e) => {
     if (trackOne.isBlocked) {
       console.log('Permission Denied');
@@ -53,10 +56,7 @@ const [trackOne, setTrackOne] = useState(
         }).catch((e) => console.error(e));
     }
   };
-  
-  console.log(trackOne.blobURL)
-  
-  // Stopping first track, creating an object url (necessary?), state updated
+
   const stopOne = () => {
     Mp3Recorder
       .stop()
@@ -75,18 +75,17 @@ const [trackOne, setTrackOne] = useState(
       }).catch((e) => console.log(e));
     
   }
-  
-    console.log(audioData)
-  
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
     
     const formData = new FormData()
-    formData.append(
-      'audio_data', audioData
-    )
+    formData.append('audio_data', audioData)
+    formData.append('card_id', card.id)
 
-  
+    
+
     fetch('/tracks', {
       method: 'POST',
       body: formData,
@@ -98,14 +97,15 @@ const [trackOne, setTrackOne] = useState(
       }
     })
   }
-  
+
+
   useEffect(() => {
     fetch('/tracks')
       .then(r => r.json())
       .then(data => setAllTracks(data))
   }, [dummyState])
 
-  
+
   const handleClickState = () => {
     return(
       setDummyState(!dummyState)

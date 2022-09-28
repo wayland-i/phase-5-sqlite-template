@@ -14,7 +14,7 @@ class TracksController < ApplicationController
     private
 
     def track_params
-        params.permit(:audio_data)
+        params.permit(:audio_data, :card_id)
     end
 
 end
