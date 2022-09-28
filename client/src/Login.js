@@ -37,6 +37,7 @@ const onSubmit = (e) => {
   })
 }
 
+console.log(errors)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -45,7 +46,7 @@ const onSubmit = (e) => {
 
 
   return (
-    <div>
+    <div> 
         <h1>Login</h1>
         <form onSubmit={onSubmit}>
             <label htmlFor='username'>Username: </label>
@@ -58,6 +59,7 @@ const onSubmit = (e) => {
             <br></br>
             <input type='submit' value='Log In' />
         </form>
+        {errors? <div>{errors}</div>:null}
     </div>
   )
 }

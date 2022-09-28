@@ -39,6 +39,8 @@ function SignUp({updateUser}) {
     })
   }
 
+  console.log(errors)
+
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -59,6 +61,7 @@ function SignUp({updateUser}) {
             <br></br>
             <br></br>
             <input type='submit' value='Sign Up' />
+            {errors? errors.map(error => <div> {error[0]} {error[1]} </div>) :null}
         </form>
     </div>
   )

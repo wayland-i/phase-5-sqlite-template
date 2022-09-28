@@ -7,12 +7,6 @@ function UserPage({currentUser, allCards, setAllCards}) {
   const [errors, setErrors] = useState([])
   const history = useHistory()
 
-  const [publicSelected, setPublicSeclected] = useState({})
-
-
-
-
-
   const [cardData, setCardData] = useState({
     title: 'new card',
     description: 'description goes here',

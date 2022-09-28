@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, Link, useHistory } from "react-router-dom"
 
-function Header({ currentUser, updateUser }) {
+function Header({ currentUser, updateUser, setDummy }) {
 
     const history = useHistory()
 
@@ -13,10 +13,15 @@ function Header({ currentUser, updateUser }) {
         history.push('/login')
     }
 
+    const handleClick = () => {
+        setDummy(dummy => !dummy)
+    }
+
 
   return (
     <div>
         <span>This is the header</span>
+        <button onClick={handleClick}>re-render</button>
         {currentUser ? <button onClick={handleLogout}>Logout</button> : null}
         <nav>
             <NavLink exact to="/">

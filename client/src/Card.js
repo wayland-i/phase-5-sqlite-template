@@ -19,13 +19,7 @@ function Card({card, currentUser, setAllCards, allCards}) {
             //     is_public
             // }
 
-
-
-
         const handleOnClick = (e) => {
-
-            console.log(e.target.checked)
-            
 
 
             const card = {
@@ -33,16 +27,18 @@ function Card({card, currentUser, setAllCards, allCards}) {
                 is_public: `${e.target.checked}`
             }
 
-            console.log(card.id)
-            console.log(e.target.checked)
-            console.log(card)
 
             fetch(`cards_privacy/${card.id}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(card)
             })
+        }
 
+        const handleDelete = (e) => {
+            fetch(`/cards/${card.id}`, {
+                method: 'DELETE'
+            })
         }
 
     
@@ -52,11 +48,6 @@ function Card({card, currentUser, setAllCards, allCards}) {
         .then(r => r.json())
         .then(data => setAllCards(data))
     } else if (currentUser.id == card.user.id) {
-        //users cards array... setState here, lives in App
-        //then in App we want to track whether or not those buttons are clicked in Card
-
-
-        console.log(card.is_public.toString())
 
   
     return (
@@ -68,6 +59,7 @@ function Card({card, currentUser, setAllCards, allCards}) {
                 <h4>card title: {card.title}</h4>
                 <h4>card description: {card.description}</h4>
                 <h1>card is public? {card.is_public.toString()}</h1>
+                <button onClick={handleDelete}>Delete this Card</button>
 
                 {card.is_public === true ? 
                 <form>

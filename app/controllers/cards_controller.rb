@@ -28,6 +28,12 @@ class CardsController < ApplicationController
         render josn: card, status: :accepted
     end
 
+    def destroy
+        card = Card.find(params[:id])
+        card.destroy
+        head :no_content
+    end
+
     private
 
     def card_params

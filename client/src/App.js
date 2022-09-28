@@ -21,6 +21,8 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
+  const [dummy, setDummy] = useState(false)
+
 
   useEffect(()=>{
     fetch('/cards')
@@ -52,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header currentUser={currentUser} updateUser={updateUser}/>
+      <Header currentUser={currentUser} updateUser={updateUser} setDummy={setDummy}/>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -61,7 +63,7 @@ function App() {
           <About />
         </Route>
         <Route path="/user_page">
-          <UserPage currentUser={currentUser} setCurrentUser={setCurrentUser} allCards={allCards}/>
+          <UserPage currentUser={currentUser} setCurrentUser={setCurrentUser} allCards={allCards} setAllCards={setAllCards}/>
         </Route>
         <Route path="/login">
           <Login updateUser={updateUser}/>
