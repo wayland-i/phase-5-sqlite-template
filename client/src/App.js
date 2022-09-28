@@ -83,8 +83,9 @@ function App() {
     
     const formData = new FormData()
     formData.append('audio_data', audioData)
+    formData.append('card_id', 3)
 
-    console.log(formData, "posted to backend")
+    
 
     fetch('/tracks', {
       method: 'POST',
