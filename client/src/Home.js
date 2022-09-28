@@ -21,6 +21,8 @@ function Home() {
     })
   }, [])
 
+  console.log(homeCards)
+
 
   return (
     <div>

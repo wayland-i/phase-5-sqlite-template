@@ -116,7 +116,7 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
   return (
     <div>
       
-      <h1>Track 1</h1>
+      {/* <h1>Track 1</h1> */}
       <button onClick={startOne} disabled={trackOne.isRecording}>
         Record
       </button>
@@ -137,11 +137,11 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
         <input type='file' accept='audio/*' onChange={(e) => setAudioData(e.target.files[0])}></input>
       </form>
 
-      <audio src={trackOne.blobURL} controls="controls" />
+      {/* <audio src={trackOne.blobURL} controls="controls" /> */}
 
       <Container allTracks={allTracks}/>
 
-      <button onClick={handleClickState}>Refresh</button>
+      {/* <button onClick={handleClickState}>Re-render</button> */}
 
     </div>
   )

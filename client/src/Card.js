@@ -56,14 +56,14 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
             <div key={card.id}>
                 <hr></hr>
                 <h4>card id: {card.id}</h4>
-                <h4>card title: {card.title}</h4>
-                <h4>card description: {card.description}</h4>
-                <h1>card is public? {card.is_public.toString()}</h1>
+                {/* <h4>card title: {card.title}</h4>
+                <h4>card description: {card.description}</h4> */}
+                {/* <h1>card is public? {card.is_public.toString()}</h1> */}
+                <h2>{card.created_at}</h2>
                 <button onClick={handleDelete}>Delete this Card</button>
 
                 {card.is_public === true ? 
                 <form>
-                    <h1>ternary works</h1>
                     <label name="privacy">public</label>
                     <label className="switch">
                         <input type="checkbox" name="privacy" defaultChecked="true" onClick={handleOnClick}/>

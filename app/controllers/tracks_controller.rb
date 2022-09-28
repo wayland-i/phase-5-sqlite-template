@@ -6,7 +6,6 @@ class TracksController < ApplicationController
     end
 
     def create
-        byebug
         track = Track.create(track_params)
         render json: track, status: :created
     end

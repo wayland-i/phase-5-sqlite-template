@@ -60,7 +60,7 @@ function App() {
       <Header currentUser={currentUser} updateUser={updateUser}/>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home allTracks={allTracks}/>
         </Route>
         <Route path="/about">
           <About />
