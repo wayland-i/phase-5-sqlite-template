@@ -10,6 +10,14 @@ function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks, 
 
   console.log(currentUser)
 
+  //   useEffect(()=>{
+  //   fetch('/me')
+  //   .then(r => {
+  //     r.json().then(data => {
+  //       setCurrentUser(data)
+  //     })
+  //   })
+  // }, [])
 
 
   const [cardData, setCardData] = useState({

@@ -28,4 +28,8 @@ class ApplicationController < ActionController::API
         # to check and see if my user is logged in and if they are then we are going to let them see parts of our app 
         render json: { errors: {User: "Not Authorized"} }, status: :unauthorized unless current_user
     end
+
+
 end
+
+      

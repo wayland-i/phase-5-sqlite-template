@@ -16,26 +16,12 @@ class SessionsController < ApplicationController
     
       #logout
       def destroy
-
-        
+        # byebug
         session.delete(:user_id)
-        # session.delete(:session_id)
-        # current_user = nil
-
-
         # reset_session
-
-
-        
-        # sign_out(current_user)
-
-
-
-        
         # current_user = nil
-        
-        # session.delete(:user_id)
-        # render json: {logout: "completed"}, status: :ok
+        # session.clear
+        # byebug
       end
 
 

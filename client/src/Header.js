@@ -9,8 +9,11 @@ function Header({ currentUser, updateUser, setDummy, setCurrentUser }) {
         fetch('/logout', {
             method: 'DELETE'
         })
-        setCurrentUser(null)
-        history.push('/login')
+        .then(() => {
+            setCurrentUser(null)
+            history.push('/login')
+        })
+   
     }
 
 

@@ -11,7 +11,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 
 
-const Mp3Recorder = new MicRecorder({ bitRate: 512 });
+const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 
 function App() {
@@ -83,7 +83,7 @@ function App() {
   }
 
   // console.log(currentUser.errors.User)
-  // console.log(currentUser)
+  console.log(currentUser)
 
   if (currentUser.errors){
     fetch('/logout', {
