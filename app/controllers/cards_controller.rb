@@ -1,10 +1,12 @@
 class CardsController < ApplicationController
+    skip_before_action :authenticate_user, only: :cards_home
 
     def index
         render json: Card.all, status: :ok
     end
 
     def cards_home
+        # byebug
         cards = Card.all
         home_cards = cards.filter_map { |c| c if c.is_public}
         render json: home_cards, status: :ok

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link, useHistory } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 
 function Header({ currentUser, updateUser, setDummy }) {
 
@@ -14,6 +14,10 @@ function Header({ currentUser, updateUser, setDummy }) {
     }
 
 
+    // if (currentUser.errors.User === "Not Authorized") {
+    //     console.log("hello")
+    // }
+
 
   return (
     <div>
@@ -27,9 +31,9 @@ function Header({ currentUser, updateUser, setDummy }) {
                 About
             </NavLink>
             <br></br>
-            {currentUser ? <div><NavLink to="/user_page">User Page</NavLink></div> : null}
-            {currentUser ? null : <div><NavLink to="/login">Login</NavLink></div>}
-            {currentUser ? null : <div><NavLink to="/sign_up">Sign Up</NavLink></div>}
+            {currentUser === null ? null : <div><NavLink to="/user_page">User Page</NavLink></div>}
+            {currentUser === null ? <div><NavLink to="/login">Login</NavLink></div> : null}
+            {currentUser === null ? <div><NavLink to="/sign_up">Sign Up</NavLink></div> : null}
         </nav>
     </div>
   )

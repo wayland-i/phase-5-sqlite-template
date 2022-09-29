@@ -37,7 +37,7 @@ const onSubmit = (e) => {
   })
 }
 
-console.log(errors)
+// console.log(errors)
 
   const handleChange = (e) => {
     const { name, value } = e.target

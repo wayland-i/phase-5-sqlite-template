@@ -21,10 +21,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
 
-
-
   const [allTracks, setAllTracks] = useState([])
-
 
 
   useEffect(()=>{
@@ -52,8 +49,31 @@ function App() {
 
   const updateUser = (user) => setCurrentUser(user)
 
+  while (currentUser == null) {
+    return(
+      <div className='App'>
+          <Header currentUser={currentUser} updateUser={updateUser}/>
+      <Switch>
+        <Route exact path="/">
+          <Home allTracks={allTracks}/>
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/login">
+          <Login updateUser={updateUser}/>
+        </Route>
+        <Route path="/sign_up">
+          <SignUp updateUser={updateUser}/>
+        </Route>
+      </Switch>
+      </div>
+    )
+  }
+
 
   console.log(currentUser)
+
 
   return (
     <div className="App">

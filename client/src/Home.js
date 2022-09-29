@@ -21,7 +21,7 @@ function Home() {
     })
   }, [])
 
-  console.log(homeCards)
+  // console.log(homeCards)
 
 
   return (
