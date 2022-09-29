@@ -42,7 +42,7 @@ function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks})
   }
 
 
-  console.log(allCards)
+  // console.log(allCards)
 
   
   return (

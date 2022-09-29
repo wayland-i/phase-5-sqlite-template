@@ -1,7 +1,7 @@
 import React from 'react'
 
 function HomeCard({card}) {
-  console.log(card.user.username)
+  // console.log(card.user.username)
 
   return (
     <div key={card.id}>

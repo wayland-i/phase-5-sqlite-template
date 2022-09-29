@@ -39,7 +39,7 @@ function SignUp({updateUser}) {
     })
   }
 
-  console.log(errors)
+  // console.log(errors)
 
 
   const handleChange = (e) => {

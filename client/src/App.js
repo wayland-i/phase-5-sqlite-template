@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import './stylesheets/App.css';
 import MicRecorder from 'mic-recorder-to-mp3';
 
@@ -22,6 +22,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
 
   const [allTracks, setAllTracks] = useState([])
+
+  const history = useHistory()
 
 
   useEffect(()=>{
@@ -71,8 +73,17 @@ function App() {
     )
   }
 
-
+  // console.log(currentUser.errors.User)
   console.log(currentUser)
+
+  if (currentUser.errors){
+    fetch('/logout', {
+      method: 'DELETE'
+      })
+      updateUser(null)
+      history.push('/login')
+  }
+
 
 
   return (
