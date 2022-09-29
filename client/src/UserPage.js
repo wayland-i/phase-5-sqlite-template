@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import Card from './Card'
 
-function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks}) {
+function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks, setCurrentUser}) {
 
   const [errors, setErrors] = useState([])
   const history = useHistory()
+
+
+  console.log(currentUser)
+
+
 
   const [cardData, setCardData] = useState({
     title: 'new card',

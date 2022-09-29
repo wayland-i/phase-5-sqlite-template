@@ -9,14 +9,33 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         render json: user, status: :ok
       else 
-        render json: "Invalid Credentials", status: :unauthorized
+        render json: {error: "*Please enter an existing username and password*"}, status: :unauthorized
       end
   
     end
     
       #logout
       def destroy
-        session.delete :user_id
+
+        
+        session.delete(:user_id)
+        # session.delete(:session_id)
+        # current_user = nil
+
+
+        # reset_session
+
+
+        
+        # sign_out(current_user)
+
+
+
+        
+        # current_user = nil
+        
+        # session.delete(:user_id)
+        # render json: {logout: "completed"}, status: :ok
       end
 
 

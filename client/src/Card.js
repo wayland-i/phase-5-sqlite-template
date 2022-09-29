@@ -1,9 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import React from 'react'
 import AudioForCard from "./AudioForCard";
 import './stylesheets/App.css';
 
 function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks}) {
+
+
+    // useEffect(()=>{
+    //     fetch('/cards')
+    //     .then(r => r.json())
+    //     .then(data => setAllCards(data))
+    // },[])
 
 
     const [formData, SetFormData] = useState({

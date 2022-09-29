@@ -37,7 +37,7 @@ function App() {
         r.json().then(data => setErrors(data.errors))
       }
     })
-  }, [])
+  }, [currentUser])
 
   useEffect(()=>{
     fetch('/me')
@@ -48,13 +48,22 @@ function App() {
     })
   }, [])
 
-
-  const updateUser = (user) => setCurrentUser(user)
+  const updateUser = (user) => {
+    return(
+    //   fetch('/me')
+    //   .then(r => {
+    //   r.json().then(data => {
+    //     setCurrentUser(data)
+    //   })
+    // })
+      setCurrentUser(user),
+      console.log("here is my current user:", currentUser)
+    )}
 
   while (currentUser == null) {
     return(
       <div className='App'>
-          <Header currentUser={currentUser} updateUser={updateUser}/>
+          <Header currentUser={currentUser} updateUser={updateUser} setCurrentUser={setCurrentUser}/>
       <Switch>
         <Route exact path="/">
           <Home allTracks={allTracks}/>
@@ -74,21 +83,21 @@ function App() {
   }
 
   // console.log(currentUser.errors.User)
-  console.log(currentUser)
+  // console.log(currentUser)
 
   if (currentUser.errors){
     fetch('/logout', {
       method: 'DELETE'
       })
-      updateUser(null)
+      setCurrentUser(null)
       history.push('/login')
   }
 
-
+  console.log(currentUser)
 
   return (
     <div className="App">
-      <Header currentUser={currentUser} updateUser={updateUser}/>
+      <Header currentUser={currentUser} updateUser={updateUser} setCurrentUser={setCurrentUser}/>
       <Switch>
         <Route exact path="/">
           <Home allTracks={allTracks}/>

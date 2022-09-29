@@ -32,7 +32,7 @@ const onSubmit = (e) => {
               history.push(`/`)
           })
       }else {
-          r.json().then(json => setErrors(json.errors))
+          r.json().then(json => setErrors(json.error))
       }
   })
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, useHistory } from "react-router-dom"
 
-function Header({ currentUser, updateUser, setDummy }) {
+function Header({ currentUser, updateUser, setDummy, setCurrentUser }) {
 
     const history = useHistory()
 
@@ -9,7 +9,7 @@ function Header({ currentUser, updateUser, setDummy }) {
         fetch('/logout', {
             method: 'DELETE'
         })
-        updateUser(null)
+        setCurrentUser(null)
         history.push('/login')
     }
 
