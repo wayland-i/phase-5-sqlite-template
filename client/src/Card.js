@@ -6,42 +6,46 @@ import './stylesheets/App.css';
 function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks}) {
 
 
-        const [formData, SetFormData] = useState({
-            id: `${card.id}`,
-            is_public: `${card.is_public}`
+    const [formData, SetFormData] = useState({
+        id: `${card.id}`,
+        is_public: `${card.is_public}`
+    })
+
+    const { id, is_public } = formData
+
+
+        // const card = {
+        //     id,
+        //     is_public
+        // }
+
+    const handleOnClick = (e) => {
+
+        const card = {
+            id,
+            is_public: `${e.target.checked}`
+        }
+
+        fetch(`cards_privacy/${card.id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(card)
         })
+        fetch('/cards')
+        .then(r => r.json())
+        .then(data => setAllCards(data))
+    }
 
-        const { id, is_public } = formData
+    const handleDelete = (e) => {
+        fetch(`/cards/${card.id}`, {
+            method: 'DELETE'
+        })
+        fetch('/cards')
+        .then(r => r.json())
+        .then(data => setAllCards(data))
+    }
 
-
-            // const card = {
-            //     id,
-            //     is_public
-            // }
-
-        const handleOnClick = (e) => {
-
-
-            const card = {
-                id,
-                is_public: `${e.target.checked}`
-            }
-
-
-            fetch(`cards_privacy/${card.id}`, {
-                method: 'PATCH',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(card)
-            })
-        }
-
-        const handleDelete = (e) => {
-            fetch(`/cards/${card.id}`, {
-                method: 'DELETE'
-            })
-        }
-
-    
+    // console.log(card.user.id)
 
     if (card.user_id) {
         fetch('/cards')

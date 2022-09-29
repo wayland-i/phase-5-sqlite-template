@@ -38,7 +38,6 @@ function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks})
       }
     })
 
-
   }
 
 
