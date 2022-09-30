@@ -67,34 +67,55 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
         const file = new File(buffer, 'track-one.mp3', {
           type: audioType
         })
-        console.log(blob)
-        console.log(buffer)
-        console.log(loader)
         setAudioData(file)
+        console.log(file)
         console.log(audioData)
         const blobURL = URL.createObjectURL(blob)
         setTrackOne({ blobURL, isRecording: false })
         console.log("hello")
-        const formData = new FormData()
-        formData.append('audio_data', audioData)
-        formData.append('card_id', card.id)
+        // const formData = new FormData()
+        // formData.append('audio_data', audioData)
+        // formData.append('card_id', card.id)
     
         
     
-        fetch('/tracks', {
-          method: 'POST',
-          body: formData,
-        }).then((r) => {
-          if (r.ok) {
-            fetch('/tracks')
-            .then(r => r.json())
-            .then(data => setAllTracks(data))
-          }
-        })
+        // fetch('/tracks', {
+        //   method: 'POST',
+        //   body: formData,
+        // }).then((r) => {
+        //   if (r.ok) {
+        //     fetch('/tracks')
+        //     .then(r => r.json())
+        //     .then(data => setAllTracks(data))
+        //   }
+        // })
         
       })
     
   }
+
+
+  const formData = new FormData()
+  formData.append('audio_data', audioData)
+  formData.append('card_id', card.id)
+    
+        
+
+  useEffect(()=>{
+    fetch('/tracks', {
+      method: 'POST',
+      body: formData,
+    }).then((r) => {
+      if (r.ok) {
+        fetch('/tracks')
+        .then(r => r.json())
+        .then(data => setAllTracks(data))
+      }
+    })
+
+  }, [audioData])
+    
+
 
 
   const handleSubmit = (e) => {
