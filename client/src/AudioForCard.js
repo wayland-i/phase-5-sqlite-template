@@ -73,8 +73,26 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
         setAudioData(file)
         console.log(audioData)
         const blobURL = URL.createObjectURL(blob)
-        setTrackOne({ blobURL, isRecording: false });
-      }).catch((e) => console.log(e));
+        setTrackOne({ blobURL, isRecording: false })
+        console.log("hello")
+        const formData = new FormData()
+        formData.append('audio_data', audioData)
+        formData.append('card_id', card.id)
+    
+        
+    
+        fetch('/tracks', {
+          method: 'POST',
+          body: formData,
+        }).then((r) => {
+          if (r.ok) {
+            fetch('/tracks')
+            .then(r => r.json())
+            .then(data => setAllTracks(data))
+          }
+        })
+        
+      })
     
   }
 
