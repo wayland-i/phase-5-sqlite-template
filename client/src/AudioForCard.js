@@ -180,7 +180,7 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
 
       {/* <audio src={trackOne.blobURL} controls="controls" /> */}
 
-      <Container allTracks={allTracks}/>
+      <Container allTracks={allTracks} card={card}/>
 
       {/* <button onClick={handleClickState}>Re-render</button> */}
 

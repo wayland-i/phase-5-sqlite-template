@@ -83,7 +83,7 @@ function App() {
   }
 
   // console.log(currentUser.errors.User)
-  console.log(currentUser)
+  // console.log(currentUser)
 
   if (currentUser.errors){
     fetch('/logout', {
@@ -93,7 +93,7 @@ function App() {
       history.push('/login')
   }
 
-  console.log(currentUser)
+  // console.log(currentUser)
 
   return (
     <div className="App">
