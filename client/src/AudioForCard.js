@@ -68,8 +68,10 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
           type: audioType
         })
         console.log(blob)
+        console.log(buffer)
         console.log(loader)
         setAudioData(file)
+        console.log(audioData)
         const blobURL = URL.createObjectURL(blob)
         setTrackOne({ blobURL, isRecording: false });
       }).catch((e) => console.log(e));
