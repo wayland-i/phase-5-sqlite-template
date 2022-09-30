@@ -46,10 +46,11 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
     const handleDelete = (e) => {
         fetch(`/cards/${card.id}`, {
             method: 'DELETE'
-        })
+        }).then(()=>{
         fetch('/cards')
         .then(r => r.json())
-        .then(data => setAllCards(data))
+        .then(data => setAllCards(data))})
+        
     }
 
     // console.log(card.user.id)
