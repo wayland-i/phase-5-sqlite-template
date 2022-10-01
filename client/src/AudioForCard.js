@@ -94,6 +94,8 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
     
   }
 
+  console.log(trackOne.blobURL)
+
 
   const formData = new FormData()
   formData.append('audio_data', audioData)
@@ -105,39 +107,41 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
     fetch('/tracks', {
       method: 'POST',
       body: formData,
-    }).then((r) => {
+    })
+    .then((r) => {
       if (r.ok) {
         fetch('/tracks')
         .then(r => r.json())
         .then(data => setAllTracks(data))
       }
     })
+    
 
   }, [audioData])
     
 
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
     
-    const formData = new FormData()
-    formData.append('audio_data', audioData)
-    formData.append('card_id', card.id)
+  //   const formData = new FormData()
+  //   formData.append('audio_data', audioData)
+  //   formData.append('card_id', card.id)
 
     
 
-    fetch('/tracks', {
-      method: 'POST',
-      body: formData,
-    }).then((r) => {
-      if (r.ok) {
-        fetch('/tracks')
-        .then(r => r.json())
-        .then(data => setAllTracks(data))
-      }
-    })
-  }
+  //   fetch('/tracks', {
+  //     method: 'POST',
+  //     body: formData,
+  //   }).then((r) => {
+  //     if (r.ok) {
+  //       fetch('/tracks')
+  //       .then(r => r.json())
+  //       .then(data => setAllTracks(data))
+  //     }
+  //   })
+  // }
 
 
   useEffect(() => {
@@ -153,6 +157,9 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
     )
   }
 
+  // let audios = document.getElementsByTagName("audio")
+  // console.log(audios)
+
 
   return (
     <div>
@@ -166,22 +173,22 @@ function AudioForCard({ card, setAllTracks, allTracks}) {
         Stop
       </button>
 
-      <audio src={trackOne.blobURL} controls="controls" />
+      {/* <audio src={trackOne.blobURL} controls="controls" /> */}
 
 
       <br></br><br></br><br></br><br></br><br></br><br></br>
 
        {/* { <audio src={URL.createObjectURL(audioData)} controls="controls" />}  */}
 
-       <form onSubmit={handleSubmit}>
+       {/* <form onSubmit={handleSubmit}>
         <button type='submit'> submit this audio to the database</button>
         <input type='file' accept='audio/*' onChange={(e) => setAudioData(e.target.files[0])}></input>
-      </form>
+      </form> */}
 
       {/* <audio src={trackOne.blobURL} controls="controls" /> */}
 
-      <Container allTracks={allTracks} card={card}/>
-
+      <Container allTracks={allTracks} card={card} setAllTracks={setAllTracks}/>
+      
       {/* <button onClick={handleClickState}>Re-render</button> */}
 
     </div>

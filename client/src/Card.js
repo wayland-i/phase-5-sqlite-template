@@ -6,11 +6,13 @@ import './stylesheets/App.css';
 function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks}) {
 
 
-    // useEffect(()=>{
-    //     fetch('/cards')
-    //     .then(r => r.json())
-    //     .then(data => setAllCards(data))
-    // },[])
+    useEffect(()=>{
+        fetch('/cards')
+        .then(r => r.json())
+        .then(data => setAllCards(data))
+    },[allTracks])
+
+    console.log(card)
 
 
     const [formData, SetFormData] = useState({
@@ -65,7 +67,7 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
     return (
 
     
-            <div key={card.id}>
+            <div key={card.id} >
                 <hr></hr>
                 <h4>card id: {card.id}</h4>
                 {/* <h4>card title: {card.title}</h4>
@@ -92,7 +94,6 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
                 </form>
                 }
                 <AudioForCard card={card} setAllTracks={setAllTracks} allTracks={allTracks}/>
-                <button>add track</button> 
             </div>
         )
     }

@@ -12,7 +12,7 @@ function HomeCard({card}) {
                 <h1>{card.user.username}</h1>
                 <h2>{card.created_at}</h2>
                 {card.tracks.map(track => <audio src={track.audio_data} controls="controls" />)}
-                <button>Play all</button>
+                {/* <button>Play all</button> */}
     </div>
   )
 }
