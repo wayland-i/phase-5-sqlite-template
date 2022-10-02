@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Tile({track, card, playAll}) {
+function Tile({track, card}) {
     // console.log(`http://localhost:3000${track.audio_data}`)
 
     // console.log(card.id)
