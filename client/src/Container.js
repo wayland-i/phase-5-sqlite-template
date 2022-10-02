@@ -19,58 +19,98 @@ function Container({allTracks, card, setAllTracks}) {
             )
         })
     }
-
-    // put the card id as the div id for all the tracks, then getelementbyid the card/div id number and see if you can access and play all the files from there.
-
-    //first lets try to play one of these audio tracks from the play all button.
-
+    
+    const cardId = document.getElementsByClassName(`${card.id}`)
 
 
     const playAll = () => {
-        console.log(card)
-        console.log(card.id)
-        // console.log(document.getElementsByTagName('audio'))
-        const cardId = document.getElementsByClassName(`${card.id}`)
-        console.log(cardId[0].getElementsByTagName('audio')[0])
-        const firstTrack = cardId[0].getElementsByTagName('audio')[0]
-        console.log(firstTrack)
-        firstTrack.play()
-
-        // console.log("hello")
-        // console.log(card)
-        // console.log(card.tracks)
-        // const cardTracks = card.tracks.map(track => {
-        //     return(
-        //         new Audio(`http://localhost:3000${track.audio_data}`).play()
-        //     )
-        // })
-        // console.log(cardTracks.length)
+        if (cardId.length === 1){
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            firstTrack.play()
+        } else if (cardId.length === 2){
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            firstTrack.play()
+            secondTrack.play()
+        } else if (cardId.length === 3) {
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+            firstTrack.play()
+            secondTrack.play()
+            thirdTrack.play()
+        } else if (cardId.length === 4) {
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+            const fourthTrack = cardId[3].getElementsByTagName('audio')[0]
+            firstTrack.play()
+            secondTrack.play()
+            thirdTrack.play()
+            fourthTrack.play()
+        }
     }
 
     const stopAll = () => {
-        const cardId = document.getElementsByClassName(`${card.id}`)
-        console.log(cardId[0].getElementsByTagName('audio')[0])
-        const firstTrack = cardId[0].getElementsByTagName('audio')[0]
-        console.log(firstTrack)
-        firstTrack.pause()
+        if (cardId.length === 1){
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            firstTrack.pause()
+        } else if (cardId.length === 2){
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            firstTrack.pause()
+            secondTrack.pause()
+        } else if (cardId.length === 3) {
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+            firstTrack.pause()
+            secondTrack.pause()
+            thirdTrack.pause()
+        } else if (cardId.length === 4) {
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+            const fourthTrack = cardId[3].getElementsByTagName('audio')[0]
+            firstTrack.pause()
+            secondTrack.pause()
+            thirdTrack.pause()
+            fourthTrack.pause()
+        }
     }
 
     const restart = () => {
-        const cardId = document.getElementsByClassName(`${card.id}`)
-        const firstTrack = cardId[0].getElementsByTagName('audio')[0]
-        firstTrack.currentTime = 0
+        if (cardId.length === 1){
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            firstTrack.currentTime = 0
+        } else if (cardId.length === 2){
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            firstTrack.currentTime = 0
+            secondTrack.currentTime = 0
+        } else if (cardId.length === 3) {
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+            firstTrack.currentTime = 0
+            secondTrack.currentTime = 0
+            thirdTrack.currentTime = 0
+        } else if (cardId.length === 4) {
+            const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+            const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+            const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+            const fourthTrack = cardId[3].getElementsByTagName('audio')[0]
+            firstTrack.currentTime = 0
+            secondTrack.currentTime = 0
+            thirdTrack.currentTime = 0
+            fourthTrack.currentTime = 0
+        }
     }
 
-
-    // let sounds = document.getElementsByTagName("audio")
-    // console.log(sounds)
-
-    ///lets just try and grab every audio track in Tile.js by its html element name and then play all of them.
 
 
   return (
     <div>
-        {/* <h1>Container</h1> */}
         <button onClick={playAll} >
         play all!
         </button>
@@ -80,9 +120,6 @@ function Container({allTracks, card, setAllTracks}) {
         <button onClick={restart}>
         start over!
         </button>
-        {/* <button onClick={stopAll} >
-        stop all!
-        </button> */}
         <FileDisplay playAll={playAll}/>
     </div>
   )
