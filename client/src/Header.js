@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, useHistory } from "react-router-dom"
 
-function Header({ currentUser, updateUser, setDummy, setCurrentUser }) {
+function Header({ currentUser, updateUser, setCurrentUser }) {
 
     const history = useHistory()
 

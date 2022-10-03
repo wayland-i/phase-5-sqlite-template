@@ -16,8 +16,8 @@ const cardTracks = []
       console.log(cardTracks)
       return(
         <div className={card.id}>
-          <label name='mute'>mute</label>
-          <input type='checkbox' name='mute'></input>
+          {/* <label name='mute'>mute</label>
+          <input type='checkbox' name='mute'></input> */}
           <audio src={`http://localhost:3000${track.audio_data}`} controls="controls"></audio>
         </div>
       )
