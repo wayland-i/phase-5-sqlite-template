@@ -20,8 +20,6 @@ function Container({allTracks, card, setAllTracks}) {
     }
     
 
-
-
   return (
     <div>
         <FileDisplay />

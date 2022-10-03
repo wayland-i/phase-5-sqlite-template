@@ -6,11 +6,11 @@ import './stylesheets/App.css';
 function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks}) {
 
 
-    useEffect(()=>{
-        fetch('/cards')
-        .then(r => r.json())
-        .then(data => setAllCards(data))
-    },[allTracks])
+    // useEffect(()=>{
+    //     fetch('/cards')
+    //     .then(r => r.json())
+    //     .then(data => setAllCards(data))
+    // },[allTracks])
 
     console.log(card)
 

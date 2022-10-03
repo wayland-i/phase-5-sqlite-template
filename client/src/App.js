@@ -48,6 +48,12 @@ function App() {
     })
   }, [])
 
+  useEffect(()=>{
+    fetch('/tracks')
+    .then(r => r.json())
+    .then(data => setAllTracks(data))
+  }, [])
+
   const updateUser = (user) => {
     return(
     //   fetch('/me')
