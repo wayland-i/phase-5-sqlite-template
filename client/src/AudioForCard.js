@@ -194,6 +194,70 @@ const restartAll = () => {
     }
 }
 
+const startOverDub = () => {
+  if (cardId.length === 1){
+      // const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      // firstTrack.play()
+      playAll()
+      startOne()
+  } else if (cardId.length === 2){
+      const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+      startOne()
+      firstTrack.play()
+      secondTrack.play()
+  } else if (cardId.length === 3) {
+      const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+      const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+      startOne()
+      firstTrack.play()
+      secondTrack.play()
+      thirdTrack.play()
+  } else if (cardId.length === 4) {
+      const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+      const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+      const fourthTrack = cardId[3].getElementsByTagName('audio')[0]
+      startOne()
+      firstTrack.play()
+      secondTrack.play()
+      thirdTrack.play()
+      fourthTrack.play()
+  }
+}
+
+const stopOverDub = () => {
+  if (cardId.length === 1){
+      const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      stopOne()
+      firstTrack.pause()
+  } else if (cardId.length === 2){
+      const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+      stopOne()
+      firstTrack.pause()
+      secondTrack.pause()
+  } else if (cardId.length === 3) {
+      const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+      const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+      stopOne()
+      firstTrack.pause()
+      secondTrack.pause()
+      thirdTrack.pause()
+  } else if (cardId.length === 4) {
+      const firstTrack = cardId[0].getElementsByTagName('audio')[0]
+      const secondTrack = cardId[1].getElementsByTagName('audio')[0]
+      const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
+      const fourthTrack = cardId[3].getElementsByTagName('audio')[0]
+      stopOne()
+      firstTrack.pause()
+      secondTrack.pause()
+      thirdTrack.pause()
+      fourthTrack.pause()
+  }
+}
 
   return (
     <div>
@@ -222,6 +286,13 @@ const restartAll = () => {
       <button onClick={restartAll}>
       start over!
       </button>
+      <button onClick={startOverDub}>
+      start overdub!
+      </button>
+      <button onClick={stopOverDub}>
+      stop overdub!
+      </button>
+
 
       <Container allTracks={allTracks} card={card} setAllTracks={setAllTracks}/>
 
