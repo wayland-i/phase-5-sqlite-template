@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   delete '/logout', to: "sessions#destroy"
   patch '/cards_privacy/:id', to: "cards#cards_privacy"
   get '/cards_home', to: "cards#cards_home"
+  get '/cards_sorted', to: "cards#cards_sorted"
 end

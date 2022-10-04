@@ -2,13 +2,12 @@ class CardsController < ApplicationController
     skip_before_action :authenticate_user, only: :cards_home
 
     def index
-        render json: Card.all, status: :ok
+        render json: Card.all.reverse, status: :ok
     end
 
     def cards_home
-        # byebug
         cards = Card.all
-        home_cards = cards.filter_map { |c| c if c.is_public}
+        home_cards = cards.filter_map { |c| c if c.is_public}.reverse
         render json: home_cards, status: :ok
     end
 
@@ -35,6 +34,16 @@ class CardsController < ApplicationController
         card.destroy
         head :no_content
     end
+
+    def cards_sorted
+        byebug
+    #     cards = Card.all
+    #     cards_sorted = cards.sort_by(:created_at)
+    #     render json: cards_sorted, status: :ok
+    end
+
+    # #@total.sort_by(&:created_at)
+    # #@total.order({ created_at: :desc })
 
     private
 
