@@ -4,13 +4,16 @@ import { useEffect, useState } from 'react';
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
-function AudioControls({card, setAllTracks}) {
+function AudioControls({card, setAllTracks, calibrationTwo, calibrationThree, calibrationFour}) {
 
 
   const [audioData, setAudioData] = useState(null)
   // const [loader, setLoader] = useState([])
   const [dummyState, setDummyState] = useState(false)
-  
+
+    console.log(calibrationTwo)
+    console.log(calibrationThree)
+    console.log(calibrationFour)
   
 
   const [trackOne, setTrackOne] = useState(
@@ -93,6 +96,8 @@ function AudioControls({card, setAllTracks}) {
     })
   }, [audioData])
 
+
+
     //logic for playall, stopall, restartall,
   const cardId = document.getElementsByClassName(`${card.id}`)
 
@@ -104,23 +109,23 @@ function AudioControls({card, setAllTracks}) {
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         const secondTrack = cardId[1].getElementsByTagName('audio')[0]
         firstTrack.play()
-        secondTrack.play()
+        setTimeout(()=>{secondTrack.play()}, calibrationTwo)
     } else if (cardId.length === 3) {
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         const secondTrack = cardId[1].getElementsByTagName('audio')[0]
         const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
         firstTrack.play()
-        secondTrack.play()
-        thirdTrack.play()
+        setTimeout(()=>{secondTrack.play()}, calibrationTwo)
+        setTimeout(()=>{thirdTrack.play()}, calibrationTwo)
     } else if (cardId.length === 4) {
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         const secondTrack = cardId[1].getElementsByTagName('audio')[0]
         const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
         const fourthTrack = cardId[3].getElementsByTagName('audio')[0]
         firstTrack.play()
-        secondTrack.play()
-        thirdTrack.play()
-        fourthTrack.play()
+        setTimeout(()=>{secondTrack.play()}, calibrationTwo)
+        setTimeout(()=>{thirdTrack.play()}, calibrationTwo)
+        setTimeout(()=>{fourthTrack.play()}, calibrationTwo)
     }
 }
 
@@ -185,20 +190,21 @@ const startOverDub = () => {
       const firstTrack = cardId[0].getElementsByTagName('audio')[0]
       startOne()
       firstTrack.play()
+    //   setTimeout(startOne(), calibrationOne)
   } else if (cardId.length === 2){
       const firstTrack = cardId[0].getElementsByTagName('audio')[0]
       const secondTrack = cardId[1].getElementsByTagName('audio')[0]
       startOne()
       firstTrack.play()
-      secondTrack.play()
+      setTimeout(()=>{secondTrack.play()}, calibrationTwo)
   } else if (cardId.length === 3) {
       const firstTrack = cardId[0].getElementsByTagName('audio')[0]
       const secondTrack = cardId[1].getElementsByTagName('audio')[0]
       const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
       startOne()
       firstTrack.play()
-      secondTrack.play()
-      thirdTrack.play()
+      setTimeout(()=>{secondTrack.play()}, calibrationTwo)
+      setTimeout(()=>{thirdTrack.play()}, calibrationTwo)
   } else if (cardId.length === 4) {
       const firstTrack = cardId[0].getElementsByTagName('audio')[0]
       const secondTrack = cardId[1].getElementsByTagName('audio')[0]
@@ -261,6 +267,8 @@ const stopOverDub = () => {
             Stop
         </button>
 
+        <br></br><br></br>
+        {/* <input type='number' placeholder='0' onChange={onChangeCalibration}></input> */}
         <br></br><br></br>
 
         <button onClick={playAll} >

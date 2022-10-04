@@ -10,6 +10,12 @@ class TracksController < ApplicationController
         render json: track, status: :created
     end
 
+    def destroy
+        track = Track.find(params[:id])
+        track.destroy
+        head :no_content
+    end
+
     private
 
     def track_params

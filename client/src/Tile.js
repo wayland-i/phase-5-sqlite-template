@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function Tile({track, card}) {
     // console.log(`http://localhost:3000${track.audio_data}`)
@@ -7,6 +7,15 @@ function Tile({track, card}) {
     // console.log(track.card.id)
 
 const cardTracks = []
+
+const handleDeleteTrack = () => {
+  console.log(track)
+
+  fetch(`/tracks/${track.id}`, {
+    method: 'DELETE'
+  })
+  
+}
 
   
 
@@ -19,6 +28,7 @@ const cardTracks = []
           {/* <label name='mute'>mute</label>
           <input type='checkbox' name='mute'></input> */}
           <audio src={`http://localhost:3000${track.audio_data}`} controls="controls"></audio>
+          <button onClick={handleDeleteTrack}>delete track</button>
         </div>
       )
     } 

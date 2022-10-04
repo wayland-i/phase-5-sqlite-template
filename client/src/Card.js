@@ -93,6 +93,8 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
                     </label>
                 </form>
                 }
+                {/* <label name='one'>calibrate one</label>
+                <input name='one' type='number'></input> */}
                 <AudioForCard card={card} setAllTracks={setAllTracks} allTracks={allTracks}/>
             </div>
         )
