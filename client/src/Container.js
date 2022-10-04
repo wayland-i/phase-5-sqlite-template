@@ -9,22 +9,22 @@ function Container({allTracks, card, setAllTracks}) {
     const [calibrationThree, setCalibrationThree] = useState(0)
     const [calibrationFour, setCalibrationFour] = useState(0)
 
-    console.log(card.tracks)
+    // console.log(card.tracks)
 
-    // const updateTracks = () => {
-    //     fetch('/tracks')
-    //     .then(r => r.json())
-    //     .then(data => setAllTracks(data))
-    // }
-    
+    const trackRerender = () => {
+        fetch('/tracks')
+        .then(r => r.json())
+        .then(data => setAllTracks(data))
+    }
 
     const FileDisplay = () => {
         return allTracks.map(track => {
             return(
-               <Tile 
+               <Tile
                 key={track.id}
                 track={track}
                 card={card}
+                trackRerender={trackRerender}
             />
             )
         })
@@ -42,7 +42,7 @@ function Container({allTracks, card, setAllTracks}) {
     
   return (
     <div>
-        <FileDisplay />
+        <FileDisplay trackRerender={trackRerender}/>
         <AudioControls card={card} setAllTracks={setAllTracks} calibrationTwo={calibrationTwo} calibrationThree={calibrationThree} calibrationFour={calibrationFour}/>
         <label name='two'>calibrate track two</label>
         <input name='two' type='number' placeholder='250' onChange={onChangeCalibrationTwo}></input> <br></br>

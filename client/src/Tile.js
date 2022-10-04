@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function Tile({track, card}) {
+function Tile({track, card, trackRerender}) {
 
 const cardTracks = []
 
@@ -12,6 +12,7 @@ const handleDeleteTrack = () => {
   })
   console.log(cardTracks)
 
+  trackRerender()
 }
 
   
