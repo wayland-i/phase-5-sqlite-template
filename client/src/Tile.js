@@ -1,10 +1,6 @@
 import React, {useState} from 'react'
 
 function Tile({track, card}) {
-    // console.log(`http://localhost:3000${track.audio_data}`)
-
-    // console.log(card.id)
-    // console.log(track.card.id)
 
 const cardTracks = []
 
@@ -14,7 +10,8 @@ const handleDeleteTrack = () => {
   fetch(`/tracks/${track.id}`, {
     method: 'DELETE'
   })
-  
+  console.log(cardTracks)
+
 }
 
   

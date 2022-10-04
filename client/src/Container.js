@@ -10,6 +10,12 @@ function Container({allTracks, card, setAllTracks}) {
     const [calibrationFour, setCalibrationFour] = useState(0)
 
     console.log(card.tracks)
+
+    // const updateTracks = () => {
+    //     fetch('/tracks')
+    //     .then(r => r.json())
+    //     .then(data => setAllTracks(data))
+    // }
     
 
     const FileDisplay = () => {
