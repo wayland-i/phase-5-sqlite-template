@@ -53,9 +53,6 @@ class CardsController < ApplicationController
     #     render json: cards_sorted, status: :ok
     # end
 
-    # #@total.sort_by(&:created_at)
-    # #@total.order({ created_at: :desc })
-
     private
 
     def card_params
