@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
-import './stylesheets/App.css';
+// import './stylesheets/App.css';
 import MicRecorder from 'mic-recorder-to-mp3';
 
 import Home from './Home';
