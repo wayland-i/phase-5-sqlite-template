@@ -26,7 +26,7 @@ const handleDeleteTrack = () => {
           {/* <label name='mute'>mute</label>
           <input type='checkbox' name='mute'></input> */}
           <audio src={`http://localhost:3000${track.audio_data}`} controls="controls"></audio>
-          <button onClick={handleDeleteTrack}>delete track</button>
+          <button onClick={handleDeleteTrack}>X</button>
         </div>
       )
     } 

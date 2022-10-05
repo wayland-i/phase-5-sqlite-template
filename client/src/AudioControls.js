@@ -8,8 +8,9 @@ function AudioControls({card, setAllTracks, calibrationTwo, calibrationThree, ca
 
 
   const [audioData, setAudioData] = useState(null)
-  // const [loader, setLoader] = useState([])
-  const [dummyState, setDummyState] = useState(false)
+  const [recording, setRecording] = useState(false)
+  const [playing, setPlaying] = useState(false)
+//   const [dummyState, setDummyState] = useState(false)
 
     console.log(calibrationTwo)
     console.log(calibrationThree)
@@ -186,7 +187,9 @@ const restartAll = () => {
 }
 
 const startOverDub = () => {
-  if (cardId.length === 1){
+    if (cardId.length === 0){
+      startOne()
+  } else if (cardId.length === 1){
       const firstTrack = cardId[0].getElementsByTagName('audio')[0]
       startOne()
       firstTrack.play()
@@ -220,7 +223,9 @@ const startOverDub = () => {
 
 
 const stopOverDub = () => {
-  if (cardId.length === 1){
+    if (cardId.length === 0){
+        stopOne()
+  } else if (cardId.length === 1){
       const firstTrack = cardId[0].getElementsByTagName('audio')[0]
       stopOne()
       firstTrack.pause()
@@ -252,40 +257,66 @@ const stopOverDub = () => {
 }
 
 
+const recordClicked = () => {
+    if (recording === false) {
+        startOverDub()
+        setRecording(true)
+    } else if (recording === true) {
+        stopOverDub()
+        setRecording(false)
+    }
+}
 
+const playStopClicked = () => {
+    if (playing === false) {
+        playAll()
+        setPlaying(true)
+    } else if (playing === true) {
+        stopAll()
+        setPlaying(false)
+    }
+}
 
 
 
   return (
     <div>
-        <h1>AudioControls</h1>
-        <button onClick={startOne} disabled={trackOne.isRecording}>
+        {/* <h1>AudioControls</h1> */}
+        {/* <button onClick={startOne} disabled={trackOne.isRecording}>
         Record
         </button>
 
         <button onClick={stopOne} disabled={!trackOne.isRecording}>
             Stop
-        </button>
+        </button> */}
+
+        <button onClick={recordClicked}>record</button>
 
         <br></br><br></br>
         {/* <input type='number' placeholder='0' onChange={onChangeCalibration}></input> */}
         <br></br><br></br>
 
-        <button onClick={playAll} >
+        {/* <button onClick={playAll} >
         play all!
         </button>
         <button onClick={stopAll}>
         stop all!
+        </button> */}
+        <button onClick={playStopClicked} onDoubleClick={restartAll}>
+        play/stop//restart
         </button>
-        <button onClick={restartAll}>
+        {/* <button onClick={restartAll}>
         start over!
-        </button>
-        <button onClick={startOverDub}>
+        </button> */}
+        {/* <button onClick={startOverDub}>
         start overdub!
         </button>
         <button onClick={stopOverDub}>
         stop overdub!
         </button>
+        <button onClick={recordClicked}>
+        overdub!
+        </button> */}
     </div>
   )
 }
