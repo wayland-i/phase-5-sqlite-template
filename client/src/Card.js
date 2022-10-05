@@ -2,18 +2,15 @@ import { useEffect, useState } from "react"
 import React from 'react'
 import AudioForCard from "./AudioForCard";
 import './stylesheets/App.css';
+import CardInfo from "./CardInfo";
 
 function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks}) {
 
 
-    // useEffect(()=>{
-    //     fetch('/cards')
-    //     .then(r => r.json())
-    //     .then(data => setAllCards(data))
-    // },[allTracks])
+    // const [editTitle, setEditTitle] = useState(false)
+    // const [editDescription, setEditDescription] = useState(false)
 
-    console.log(card)
-
+    // console.log(card)
 
     const [formData, SetFormData] = useState({
         id: `${card.id}`,
@@ -22,11 +19,6 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
 
     const { id, is_public } = formData
 
-
-        // const card = {
-        //     id,
-        //     is_public
-        // }
 
     const handleOnClick = (e) => {
 
@@ -55,7 +47,12 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
         
     }
 
-    // console.log(card.user.id)
+    // useEffect(()=>{
+    //     fetch('/cards')
+    //     .then(r => r.json())
+    //     .then(data => setAllCards(data))
+    // }, [])
+
 
     if (card.user_id) {
         fetch('/cards')
@@ -69,11 +66,7 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
     
             <div key={card.id} >
                 <hr></hr>
-                <h4>card id: {card.id}</h4>
-                <h4>card title: {card.title}</h4>
-                <h4>card description: {card.description}</h4>
-                {/* <h1>card is public? {card.is_public.toString()}</h1> */}
-                <h2>{card.created_at}</h2>
+                <CardInfo card={card} setAllCards={setAllCards}/>
                 <button onClick={handleDelete}>Delete this Card</button>
 
                 {card.is_public === true ? 

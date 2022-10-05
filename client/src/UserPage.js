@@ -21,8 +21,8 @@ function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks, 
 
 
   const [cardData, setCardData] = useState({
-    title: 'new card',
-    description: 'description goes here',
+    title: `new card`,
+    description: 'description',
     is_public: false,
     user_id: `${currentUser.id}`
   })
