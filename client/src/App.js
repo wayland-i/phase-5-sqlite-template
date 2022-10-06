@@ -70,6 +70,7 @@ function App() {
     return(
       <div className='App'>
           <Header currentUser={currentUser} updateUser={updateUser} setCurrentUser={setCurrentUser}/>
+          <h1 class="text-8xl font-bold mb-6 absolute right-0 top-0 italic underline">DEMO</h1>
       <Switch>
         <Route exact path="/">
           <Home allTracks={allTracks}/>
