@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-    skip_before_action :authenticate_user, only: :cards_home
+    skip_before_action :authenticate_user, only: [:cards_home, :index]
 
     def index
         render json: Card.all.reverse, status: :ok
