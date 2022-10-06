@@ -30,7 +30,7 @@ function HomeCard({card}) {
                 <h2 class="text-gray-800 leading-relaxed float-right relative">{presentDate}</h2>
                 <h2 class="text-gray-800 leading-relaxed float-left relative">{reFormat}</h2>
                 
-                <h1 class="text-2xl font-bold mb-2 mt-7">{card.title} by {card.user.username}</h1>
+                <h1 class="text-2xl font-bold mb-6 mt-7">{card.title} by {card.user.username}</h1>
                 <HomeContainer card={card}/>
                 <HomeAudioControls card={card}/>
                 {/* {card.tracks.map(track => 

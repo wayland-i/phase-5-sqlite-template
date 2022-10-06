@@ -27,7 +27,7 @@ function Home() {
 
   return (
     <div>
-        <h1 class="text-2xl font-bold mb-2">Home</h1>
+        <h1 class="text-2xl font-bold mb-2">Home Page</h1>
         {homeCards.map(card => <HomeCard key={card.id} card={card}/>)}
     </div>
   )

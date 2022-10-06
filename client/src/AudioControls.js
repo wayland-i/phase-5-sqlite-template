@@ -278,20 +278,21 @@ const playStopClicked = () => {
 }
 
 
-
   return (
     <div>
         {/* <h1>AudioControls</h1> */}
-        {/* <button onClick={startOne} disabled={trackOne.isRecording}>
-        Record
-        </button>
-
-        <button onClick={stopOne} disabled={!trackOne.isRecording}>
-            Stop
-        </button> */}
-        <div class="p-4">
+        {/* <div class="p-4">
           <button onClick={recordClicked} class="bg-red-500 hover:bg-red-400 py-5 px-5 rounded-full"></button>
-        </div>
+        </div> */}
+
+        {recording ? 
+                <div class="p-4">
+                  <button onClick={recordClicked} class="bg-red-500 hover:bg-red-700 py-5 px-5 rounded-full animate-pulse border-red-900 border-2"></button>
+                </div>
+               : 
+                <div class="p-4">
+                  <button onClick={recordClicked} class="bg-red-500 hover:bg-red-700 py-5 px-5 rounded-full"></button>
+                </div>}
    
         <button onClick={playStopClicked} onDoubleClick={restartAll} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         {playing ? 
