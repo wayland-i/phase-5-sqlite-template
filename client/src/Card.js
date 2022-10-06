@@ -64,7 +64,7 @@ function Card({card, currentUser, setAllCards, allCards, setAllTracks, allTracks
     return (
 
     
-            <div key={card.id} >
+            <div key={card.id} class="container mx-auto flex flex-wrap items-start my-16 ">
                 <hr></hr>
                 <CardInfo card={card} setAllCards={setAllCards}/>
                 <button onClick={handleDelete}>Delete this Card</button>

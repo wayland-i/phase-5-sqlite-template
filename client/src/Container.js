@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Tile from './Tile'
 import AudioControls from './AudioControls';
 
 
-function Container({allTracks, card, setAllTracks}) {
+function Container({allTracks, card, setAllTracks, currentUser}) {
 
     const [calibrationTwo, setCalibrationTwo] = useState(0)
     const [calibrationThree, setCalibrationThree] = useState(0)
     const [calibrationFour, setCalibrationFour] = useState(0)
 
-    // console.log(card.tracks)
+    console.log(currentUser)
+    console.log(allTracks)
 
     const trackRerender = () => {
         fetch('/tracks')
@@ -39,6 +40,7 @@ function Container({allTracks, card, setAllTracks}) {
     const onChangeCalibrationFour = (e) => {
         setCalibrationFour(e.target.value)
     }
+
     
   return (
     <div>

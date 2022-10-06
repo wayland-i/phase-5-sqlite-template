@@ -61,8 +61,8 @@ function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks, 
     <div>
         <h1>User Page</h1>
         <h3>{currentUser.username} is the current user</h3>
-        <button onClick={handleNewCard}>New Card</button>
-        {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setAllCards={setAllCards} allCards={allCards} setAllTracks={setAllTracks} allTracks={allTracks}/>)}
+        <button onClick={handleNewCard} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New Card</button>
+        {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setCurrentUser={setCurrentUser} setAllCards={setAllCards} allCards={allCards} setAllTracks={setAllTracks} allTracks={allTracks}/>)}
     </div>
   )
 }

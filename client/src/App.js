@@ -99,7 +99,7 @@ function App() {
       history.push('/login')
   }
 
-  // console.log(currentUser)
+  console.log(currentUser)
 
   return (
     <div className="App">
@@ -108,10 +108,10 @@ function App() {
         <Route exact path="/">
           <Home allTracks={allTracks}/>
         </Route>
-        <Route path="/about">
+        <Route exact path="/about">
           <About />
         </Route>
-        <Route path="/user_page">
+        <Route exact path="/user_page">
           <UserPage 
           currentUser={currentUser} 
           setCurrentUser={setCurrentUser} 
@@ -120,10 +120,10 @@ function App() {
           allTracks={allTracks}
           setAllTracks={setAllTracks}/>
         </Route>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login updateUser={updateUser}/>
         </Route>
-        <Route path="/sign_up">
+        <Route exact path="/sign_up">
           <SignUp updateUser={updateUser}/>
         </Route>
       </Switch>

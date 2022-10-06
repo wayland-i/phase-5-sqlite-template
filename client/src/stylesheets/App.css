@@ -10,6 +10,10 @@ audio {
   margin: auto;
 }
 
+body {
+  background-color: #6ab8f7;
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import { NavLink, useHistory} from 'react-router-dom'
 
 function Login({updateUser}) {
   const [errors, setErrors] = useState([])
@@ -57,9 +57,11 @@ const onSubmit = (e) => {
             <input id='password' type='password' name='password' onChange={handleChange}></input>
             <br></br>
             <br></br>
-            <input type='submit' value='Log In' />
+            <input type='submit' value='Log In' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"/>
         </form>
         {errors? <div>{errors}</div>:null}
+        <br></br>
+        <div><NavLink to="/sign_up" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sign Up Instead</NavLink></div>
     </div>
   )
 }

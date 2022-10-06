@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {useHistory} from 'react-router-dom'
+import { NavLink, useHistory} from 'react-router-dom'
 
 
 function SignUp({updateUser}) {
@@ -60,9 +60,11 @@ function SignUp({updateUser}) {
             <input id='password' name='password' type='password' onChange={handleChange}></input>
             <br></br>
             <br></br>
-            <input type='submit' value='Sign Up' />
+            <input type='submit' value='Sign Up' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"/>
             {errors ? errors.map(e => <div>{e[0]+': ' + e[1]}</div>) : null}
         </form>
+        <br></br>
+        <div><NavLink to="/login" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Login Instead</NavLink></div>
     </div>
   )
 }
