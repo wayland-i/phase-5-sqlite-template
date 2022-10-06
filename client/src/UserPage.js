@@ -59,7 +59,7 @@ function UserPage({currentUser, allCards, setAllCards, setAllTracks, allTracks, 
   
   return (
     <div>
-        <h1 class="text-2xl font-bold mb-2">{currentUser.username}'s page</h1>
+        <h1 class="text-2xl font-bold mb-2">{currentUser.username}'s Page</h1>
         <button onClick={handleNewCard} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New Card</button>
         {allCards.map(card => <Card key={card.id} card={card} currentUser={currentUser} setCurrentUser={setCurrentUser} setAllCards={setAllCards} allCards={allCards} setAllTracks={setAllTracks} allTracks={allTracks}/>)}
     </div>
