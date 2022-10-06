@@ -50,7 +50,7 @@ function SignUp({updateUser}) {
 
   return (
     <div>
-        <h1>Sign Up</h1>
+        <h1 class="text-2xl font-bold mb-2">Sign Up</h1>
         <form onSubmit={onSubmit}>
             <label htmlFor='username'>Create Username: </label>
             <input id='username' name='username' onChange={handleChange}></input>

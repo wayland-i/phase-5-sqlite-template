@@ -46,12 +46,14 @@ function Container({allTracks, card, setAllTracks, currentUser}) {
     <div>
         <FileDisplay trackRerender={trackRerender}/>
         <AudioControls card={card} setAllTracks={setAllTracks} calibrationTwo={calibrationTwo} calibrationThree={calibrationThree} calibrationFour={calibrationFour}/>
-        <label name='two'>calibrate track two</label>
-        <input name='two' type='number' placeholder='250' onChange={onChangeCalibrationTwo}></input> <br></br>
-        <label name='three'>calibrate track three</label>
-        <input name='three' type='number' onChange={onChangeCalibrationThree}></input> <br></br>
-        <label name='four'>calibrate track four</label>
-        <input name='four' type='number' onChange={onChangeCalibrationFour}></input>
+        <div class="m-2">
+            <label name='two'>calibrate track two</label>
+            <input name='two' type='number' placeholder='250' onChange={onChangeCalibrationTwo}></input> <br></br>
+            <label name='three'>calibrate track three</label>
+            <input name='three' type='number' onChange={onChangeCalibrationThree}></input> <br></br>
+            <label name='four'>calibrate track four</label>
+            <input name='four' type='number' onChange={onChangeCalibrationFour}></input>
+        </div>
     </div>
   )
 }

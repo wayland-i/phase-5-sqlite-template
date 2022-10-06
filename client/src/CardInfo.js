@@ -94,19 +94,19 @@ function CardInfo({card, setAllCards}) {
 
 
   return (
-    <div>
-            <h4>card id: {card.id}</h4>
+    <div class="mt-7">
+            {/* <h4>card id: {card.id}</h4> */}
             {editTitle ? 
                 <div>
-                <input onBlur={handleTitleBlur} onChange={handleTitleOnChange}></input>
+                <input onBlur={handleTitleBlur} onChange={handleTitleOnChange} placeholder="edit title"></input>
                 </div> 
-                : <h1 onDoubleClick={handleEditTitle}>{titleContent}</h1>}
+                : <h1 onDoubleClick={handleEditTitle} class="text-2xl font-bold mb-2">{titleContent}</h1>}
             {/* {editDescription ?
                 <div>
                 <input onBlur={handleDescriptionBlur} onChange={handleDescriptionOnChange}></input>
                 </div>
                 : <h1 onDoubleClick={handleEditDescription}>{descriptionContent}</h1>} */}
-            <h2>{card.created_at}</h2>
+            {/* <h2 class="text-gray-800 leading-relaxed">{card.created_at}</h2> */}
     </div>
   )
 }

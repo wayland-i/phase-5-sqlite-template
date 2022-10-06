@@ -47,7 +47,7 @@ const onSubmit = (e) => {
 
   return (
     <div> 
-        <h1>Login</h1>
+        <h1 class="text-2xl font-bold mb-2">Login</h1>
         <form onSubmit={onSubmit}>
             <label htmlFor='username'>Username: </label>
             <input id='username' name='username' onChange={handleChange}></input>
