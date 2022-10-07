@@ -10,7 +10,12 @@ function HomeAudioControls({card}) {
     const [calibrate, setCalibrate] = useState(false)
 
 
+    console.log(card.tracks)
     const cardId = document.getElementsByClassName(`${card.id}`)
+    console.log(card.id)
+
+    // const cardId = card.tracks
+    // console.log(cardId)
 
     const playAll = () => {
     if (cardId.length === 1){
@@ -100,9 +105,11 @@ const playStopClicked = () => {
     if (playing === false) {
         playAll()
         setPlaying(true)
+        console.log(playing)
     } else if (playing === true) {
         stopAll()
         setPlaying(false)
+        console.log(playing)
     }
 }
 
