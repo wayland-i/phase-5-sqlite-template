@@ -10,15 +10,25 @@ function HomeAudioControls({card}) {
     const [calibrate, setCalibrate] = useState(false)
 
 
-    console.log(card.tracks)
-    const cardId = document.getElementsByClassName(`${card.id}`)
-    console.log(card.id)
+    // console.log(card.tracks)
+    // const cardId = document.getElementsByClassName(`${card.id}`)
+    // console.log(card.id)
+    // console.log(cardId)
+    // card.tracks[1].play()
+    const cardParent = document.getElementsByClassName(`${card.id}`)
+    // const cardId = cardParent[0].children
 
     // const cardId = card.tracks
     // console.log(cardId)
 
-    const playAll = () => {
-    if (cardId.length === 1){
+    const playAll = (e) => {
+        const cardId = cardParent[0].children
+        
+        // console.log('running')
+        console.log(cardId);
+        console.log(cardId.length);
+     if (cardId.length === 1){
+        console.log(cardId);
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         firstTrack.play()
     } else if (cardId.length === 2){
@@ -27,6 +37,7 @@ function HomeAudioControls({card}) {
         firstTrack.play()
         setTimeout(()=>{secondTrack.play()}, calibrationTwo)
     } else if (cardId.length === 3) {
+        // console.log('we are in 3 length')
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         const secondTrack = cardId[1].getElementsByTagName('audio')[0]
         const thirdTrack = cardId[2].getElementsByTagName('audio')[0]
@@ -46,6 +57,8 @@ function HomeAudioControls({card}) {
 }
 
 const stopAll = () => {
+    const cardId = cardParent[0].children
+
     if (cardId.length === 1){
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         firstTrack.pause()
@@ -74,6 +87,8 @@ const stopAll = () => {
 }
 
 const restartAll = () => {
+    const cardId = cardParent[0].children
+    
     if (cardId.length === 1){
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         firstTrack.currentTime = 0
@@ -101,15 +116,13 @@ const restartAll = () => {
     }
 }
 
-const playStopClicked = () => {
+const playStopClicked = (e) => {
     if (playing === false) {
-        playAll()
+        playAll(e)
         setPlaying(true)
-        console.log(playing)
     } else if (playing === true) {
         stopAll()
         setPlaying(false)
-        console.log(playing)
     }
 }
 

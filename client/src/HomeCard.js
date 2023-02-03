@@ -5,7 +5,7 @@ import HomeContainer from './HomeContainer'
 function HomeCard({card}) {
   // console.log(card.user.username)
 
-  console.log(card)
+  // console.log(card)
 
 
 

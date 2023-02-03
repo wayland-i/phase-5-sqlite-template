@@ -69,12 +69,12 @@ function AudioControls({card, setAllTracks, calibrationTwo, calibrationThree, ca
         console.log(audioData)
         const blobURL = URL.createObjectURL(blob)
         setTrackOne({ blobURL, isRecording: false })
-        console.log("hello")
+        console.log("done")
       })
   }
 
   // console.log(trackOne.blobURL)
-  console.log("audioforcard")
+  // console.log("audioforcard")
 
 
   const formData = new FormData()
@@ -103,6 +103,7 @@ function AudioControls({card, setAllTracks, calibrationTwo, calibrationThree, ca
   const cardId = document.getElementsByClassName(`${card.id}`)
 
   const playAll = () => {
+    console.log(cardId);
     if (cardId.length === 1){
         const firstTrack = cardId[0].getElementsByTagName('audio')[0]
         firstTrack.play()

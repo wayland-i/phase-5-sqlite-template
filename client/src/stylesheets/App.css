@@ -12,6 +12,8 @@ audio {
 
 body {
   background-color: #6ab8f7;
+  height: 100%;
+  /* margin-bottom: -5%; */
 }
 
 /* .App-logo {
